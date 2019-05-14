@@ -1,0 +1,36 @@
+<h2>welcome</h2>
+<hr>
+<form action="/login" method="post">
+    <p>deparment：<select id="Department" name="Department">
+        {% for k,v in dpt %}
+            <option value="{{k}}">{{v}}</option> 
+        {% endfor %}
+    </select></p>
+    <p>usercode：<input id="UserCode" name="UserCode"></p>
+    <p>passsword：<input id="PassWord" name="PassWord" type="password"></p>
+    <p><input id="submit" type="submit" value="comfirm"></p>
+</form>
+<p id='info' style="color:red">{{info}}</p>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script>
+    function signinCheck(){
+        let UserCode = $('#UserCode').val(),
+            PassWord = $('#PassWord').val();
+        if(!/^[A-Za-z][-_A-Za-z0-9]+$/.test(UserCode)){
+            return '账号以字母开头，只能包含大小写字母、数字及中划线和下划线！'
+        }else if (PassWord.length < 6) {
+            return '密码至少6位！'
+        }else{
+            return 1
+        }
+    }
+    $(document).ready(()=>{
+        $('#submit').on('click', (ev)=>{
+            let info = signinCheck();
+            if (info !== 1) {
+                $('#info').html(info);
+                ev.preventDefault();
+            }             
+        })
+    })
+</script>

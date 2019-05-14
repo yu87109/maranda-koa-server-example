@@ -1,0 +1,31 @@
+<h2>Success!</h2><hr>
+<ul class="menu">
+       <li><a href="#">退出登录</a></li> 
+</ul>
+<div id='work'></div>
+<style>
+    ul,menu{border-right: 2px solid black;float: left;padding-right: 30px;}
+    ul.menu>li{
+        margin-right: 10px;
+    }
+    a{
+        text-decoration: none;
+        color: blue;
+    }
+    a:hover{
+        color:red
+    }
+    a.selected{color:red;}
+</style>
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(()=>{
+    $('ul.menu a').each((i,e)=>{
+        $(e).on('click', ()=>{
+            $('ul.menu a').removeClass('selected');
+            $(e).addClass('selected');
+            $.ajax({url:'/ajax/logout',type: 'POST', success:(data)=>{$('#work').html(data)}});
+        })
+    })
+})
+</script>

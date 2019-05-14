@@ -1,0 +1,25 @@
+{
+  "name": "maranda-koa-server-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/formidable": "^1.0.31",
+    "formidable": "^1.2.1",
+    "koa-body": "^4.1.0",
+    "maranda-koa2-nunjucks": "^1.0.7",
+    "maranda-koa2-router": "^1.0.0",
+    "maranda-koa2-session-mysql": "^1.0.7",
+    "maranda-koa2-static": "^1.0.2",
+    "promisepipe": "^3.0.0",
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "ts-node": "^8.1.0"
+  }
+}
